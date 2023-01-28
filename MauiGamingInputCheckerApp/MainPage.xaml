@@ -3,4 +3,44 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiGamingInputCheckerApp.MainPage">
 
+    <AbsoluteLayout HorizontalOptions="Center" VerticalOptions="Center">
+
+        <AbsoluteLayout.Resources>
+            <Style TargetType="Ellipse">
+                <Setter Property="WidthRequest" Value="150"/>
+                <Setter Property="HeightRequest" Value="150"/>
+                <Setter Property="Stroke" Value="Black"/>
+                <Setter Property="StrokeThickness" Value="5"/>
+            </Style>
+        </AbsoluteLayout.Resources>
+
+        <Ellipse x:Name="KEY_UP" 
+                 Fill="Black"
+                 TranslationX="-250" TranslationY="-150"/>
+        <Ellipse x:Name="KEY_DOWN"
+                 Fill="Black"
+                 TranslationX="-250" TranslationY="150"/>
+        <Ellipse x:Name="KEY_LEFT"
+                 Fill="Black"
+                 TranslationX="-400" TranslationY="0"/>
+        <Ellipse x:Name="KEY_RIGHT"
+                 Fill="Black"
+                 TranslationX="-100" TranslationY="0"/>
+
+
+        <Ellipse x:Name="KEY_1" 
+                 Fill="Yellow"
+                 TranslationX="250" TranslationY="-150"/>
+        <Ellipse x:Name="KEY_2"
+                 Fill="Green"
+                 TranslationX="250" TranslationY="150"/>
+        <Ellipse x:Name="KEY_3"
+                 Fill="Red"
+                 TranslationX="400" TranslationY="0"/>
+        <Ellipse x:Name="KEY_4"
+                 Fill="Blue"
+                 TranslationX="100" TranslationY="0"/>
+
+    </AbsoluteLayout>
+    
 </ContentPage>
