@@ -41,6 +41,8 @@
                  Fill="Blue"
                  TranslationX="100" TranslationY="0"/>
 
+        
+
     </AbsoluteLayout>
     
 </ContentPage>
