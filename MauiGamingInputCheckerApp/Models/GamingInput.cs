@@ -17,10 +17,15 @@ public class GamingInput
     }
 
 
+    public int? DeviceId { get; private set; }
+
     public Action<GamingInputArgs> KeyDown;
     public Action<GamingInputArgs> KeyUp;
 
     public void OnKeyDown(GamingInputArgs args) => KeyDown?.Invoke(args);
     public void OnKeyUp(GamingInputArgs args) => KeyUp?.Invoke(args);
+
+
+    public void SetDeviceID(int id) => DeviceId = id;
 
 }
