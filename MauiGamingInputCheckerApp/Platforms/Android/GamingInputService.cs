@@ -87,6 +87,11 @@ public partial class GamingInputService
             case Keycode.DpadDown: return GamingInput.KEYS.KEY_DOWN;
             case Keycode.DpadLeft: return GamingInput.KEYS.KEY_LEFT;
             case Keycode.DpadRight: return GamingInput.KEYS.KEY_RIGHT;
+
+            case Keycode.ButtonY: return GamingInput.KEYS.KEY_Y;
+            case Keycode.ButtonA: return GamingInput.KEYS.KEY_A;
+            case Keycode.ButtonB: return GamingInput.KEYS.KEY_B;
+            case Keycode.ButtonX: return GamingInput.KEYS.KEY_X;
         }
 
         return GamingInput.KEYS.None;

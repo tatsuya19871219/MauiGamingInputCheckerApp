@@ -4,52 +4,83 @@
              x:Class="MauiGamingInputCheckerApp.MainPage"
              BackgroundColor="Gray">
 
-    <Grid WidthRequest="500" Scale="2">
+    <Grid RowDefinitions="1*, 1*, 1*" 
+          VerticalOptions="Center" HorizontalOptions="Center"
+          RowSpacing="50">
 
-        <Image x:Name="ControllerGUI" 
-               Source="controller.png"/>
+        <Label x:Name="StatusLabel" 
+               HorizontalOptions="Center"
+               Text="Status"
+               FontSize="24" 
+               Grid.Row="0"/>
 
-        <AbsoluteLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Grid x:Name="ControllerGUIContainer"
+              WidthRequest="500"
+              Scale="1"
+              Grid.Row="1">
+
+            <Image x:Name="ControllerGUI" 
+                   Source="controller.png"/>
+
+            <Grid x:Name="ControllerGUIButtons" 
+                            HorizontalOptions="Start" VerticalOptions="Start">
+
+                <Grid.Resources>
+                    <Style TargetType="Rectangle">
+                        <Setter Property="WidthRequest" Value="30"/>
+                        <Setter Property="HeightRequest" Value="40"/>
+                        <Setter Property="Stroke" Value="Black"/>
+                        <Setter Property="StrokeThickness" Value="5"/>
+                    </Style>
+                    <Style TargetType="Ellipse">
+                        <Setter Property="WidthRequest" Value="40"/>
+                        <Setter Property="HeightRequest" Value="40"/>
+                        <Setter Property="Stroke" Value="Black"/>
+                        <Setter Property="StrokeThickness" Value="5"/>
+                    </Style>
+                </Grid.Resources>
+
+                <Rectangle x:Name="KEY_UP" 
+                           Fill="Black"
+                           TranslationX="105" TranslationY="60"/>
+                <Rectangle x:Name="KEY_DOWN"
+						   Fill="Black"
+						   TranslationX="105" TranslationY="140"/>
+                <Rectangle x:Name="KEY_LEFT"
+						   Fill="Black"
+						   TranslationX="65" TranslationY="100"
+						   Rotation="90"/>
+                <Rectangle x:Name="KEY_RIGHT"
+						   Fill="Black"
+						   TranslationX="140" TranslationY="100"
+						   Rotation="90"/>
 
 
+                <Ellipse x:Name="KEY_1" 
+                         Fill="Yellow"
+                         TranslationX="360" TranslationY="60"/>
+                <Ellipse x:Name="KEY_2"
+                         Fill="Green"
+                         TranslationX="360" TranslationY="140"/>
+                <Ellipse x:Name="KEY_3"
+                         Fill="Red"
+                         TranslationX="400" TranslationY="100"/>
+                <Ellipse x:Name="KEY_4"
+                         Fill="Blue"
+                         TranslationX="325" TranslationY="100"/>
 
-            <AbsoluteLayout.Resources>
-                <Style TargetType="Ellipse">
-                    <Setter Property="WidthRequest" Value="40"/>
-                    <Setter Property="HeightRequest" Value="40"/>
-                    <Setter Property="Stroke" Value="Black"/>
-                    <Setter Property="StrokeThickness" Value="5"/>
-                </Style>
-            </AbsoluteLayout.Resources>
+            </Grid>
+        </Grid>
 
-            <Ellipse x:Name="KEY_UP" 
-                 Fill="Black"
-                 TranslationX="-130" TranslationY="-20"/>
-            <Ellipse x:Name="KEY_DOWN"
-                 Fill="Black"
-                 TranslationX="-130" TranslationY="60"/>
-            <Ellipse x:Name="KEY_LEFT"
-                 Fill="Black"
-                 TranslationX="-170" TranslationY="20"/>
-            <Ellipse x:Name="KEY_RIGHT"
-                 Fill="Black"
-                 TranslationX="-90" TranslationY="20"/>
+        <HorizontalStackLayout HorizontalOptions="Center"
+                               Spacing="30"
+                               Grid.Row="2">
+            <Label Text="Controller #"
+                   FontSize="24"/>
+            <Slider x:Name="ControllerSelectSlider" 
+                    WidthRequest="100"/>
+        </HorizontalStackLayout>
 
-
-            <Ellipse x:Name="KEY_1" 
-                 Fill="Yellow"
-                 TranslationX="130" TranslationY="-20"/>
-            <Ellipse x:Name="KEY_2"
-                 Fill="Green"
-                 TranslationX="130" TranslationY="60"/>
-            <Ellipse x:Name="KEY_3"
-                 Fill="Red"
-                 TranslationX="170" TranslationY="20"/>
-            <Ellipse x:Name="KEY_4"
-                 Fill="Blue"
-                 TranslationX="90" TranslationY="20"/>
-
-        </AbsoluteLayout>
     </Grid>
 
 </ContentPage>

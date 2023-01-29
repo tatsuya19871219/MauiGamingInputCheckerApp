@@ -100,10 +100,10 @@ public partial class GamingInputService
             case GamepadButtons.DPadLeft: return GamingInput.KEYS.KEY_LEFT;
             case GamepadButtons.DPadRight: return GamingInput.KEYS.KEY_RIGHT;
 
-            case GamepadButtons.Y: return GamingInput.KEYS.KEY_1;
-            case GamepadButtons.A: return GamingInput.KEYS.KEY_2;
-            case GamepadButtons.B: return GamingInput.KEYS.KEY_3;
-            case GamepadButtons.X: return GamingInput.KEYS.KEY_4;
+            case GamepadButtons.Y: return GamingInput.KEYS.KEY_Y;
+            case GamepadButtons.A: return GamingInput.KEYS.KEY_A;
+            case GamepadButtons.B: return GamingInput.KEYS.KEY_B;
+            case GamepadButtons.X: return GamingInput.KEYS.KEY_X;
         }
 
         return GamingInput.KEYS.None;

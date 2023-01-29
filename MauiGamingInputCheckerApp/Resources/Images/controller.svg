@@ -25,14 +25,14 @@
      inkscape:document-units="px"
      showgrid="true"
      inkscape:zoom="1.4770342"
-     inkscape:cx="333.77697"
-     inkscape:cy="149.62416"
+     inkscape:cx="291.12393"
+     inkscape:cy="150.30119"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="1917"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1">
+     inkscape:current-layer="layer3">
     <inkscape:grid
        type="xygrid"
        id="grid686"
@@ -143,7 +143,7 @@
      inkscape:groupmode="layer"
      id="layer3"
      inkscape:label="Guide"
-     style="display:none">
+     style="display:inline">
     <path
        style="fill:#e2e2e2;stroke:#000000;stroke-width:0.264583"
        d="M 31.617748,-4.1277584e-5 V 52.916624"
@@ -153,6 +153,16 @@
        style="fill:#e2e2e2;stroke:#000000;stroke-width:0.264583"
        d="M 100.40941,-4.1277584e-5 V 52.916624"
        id="path438-5"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="display:inline;fill:#e2e2e2;stroke:#000000;stroke-width:0.264583"
+       d="M 66.145872,-2.4442117e-8 V 52.916665"
+       id="path438-5-9"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="display:inline;fill:#e2e2e2;stroke:#000000;stroke-width:0.264583"
+       d="M -8.9712381e-5,31.882249 132.29157,32.01454"
+       id="path438-5-9-2"
        sodipodi:nodetypes="cc" />
   </g>
 </svg>

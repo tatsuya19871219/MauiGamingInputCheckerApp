@@ -6,10 +6,10 @@ public class GamingInput
     public enum KEYS
     {
         None = 0,
-        KEY_1,  // Y for Xbox controller (test)
-        KEY_2,  // A
-        KEY_3,  // B
-        KEY_4,  // X
+        KEY_A,
+        KEY_B,
+        KEY_X,
+        KEY_Y,
         KEY_UP,
         KEY_DOWN,
         KEY_LEFT,

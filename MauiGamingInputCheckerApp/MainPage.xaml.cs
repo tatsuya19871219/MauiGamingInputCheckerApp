@@ -24,6 +24,8 @@ public partial class MainPage : ContentPage
 	{
 		_service = new GamingInputService();
 
+		StatusLabel.Text = "No controller device is detected yet.";
+
 		while(true)
 		{
 			if (_service.GamingInputs is not null) break;
@@ -32,9 +34,25 @@ public partial class MainPage : ContentPage
 
 		_controllers = _service.GamingInputs;
 
-		// for test
-		_controllers[0].KeyDown += KeyDownEvent;
-	}
+		foreach(var controller in _controllers)
+		{
+            controller.KeyDown += KeyDownEvent;
+        }
+
+		ControllerSelectSlider.Maximum = (double)_controllers.Count;
+
+		if (_controllers.Count == 1)
+		{
+            StatusLabel.Text = $"Controller is detected.";
+
+			ControllerSelectSlider.IsEnabled = false;
+        }
+        else
+		{
+            StatusLabel.Text = $"{_controllers.Count} controllers are detected.";
+
+        }
+    }
 
 
 	void KeyDownEvent(GamingInputArgs args)
@@ -46,17 +64,47 @@ public partial class MainPage : ContentPage
 			case GamingInput.KEYS.KEY_LEFT: AnimateButton(KEY_LEFT); break;
 			case GamingInput.KEYS.KEY_RIGHT: AnimateButton(KEY_RIGHT); break;
 
-            case GamingInput.KEYS.KEY_1: AnimateButton(KEY_1); break;
-            case GamingInput.KEYS.KEY_2: AnimateButton(KEY_2); break;
-            case GamingInput.KEYS.KEY_3: AnimateButton(KEY_3); break;
-            case GamingInput.KEYS.KEY_4: AnimateButton(KEY_4); break;
+            case GamingInput.KEYS.KEY_Y: AnimateButton(KEY_1); break;
+            case GamingInput.KEYS.KEY_A: AnimateButton(KEY_2); break;
+            case GamingInput.KEYS.KEY_B: AnimateButton(KEY_3); break;
+            case GamingInput.KEYS.KEY_X: AnimateButton(KEY_4); break;
         }
     }
 
-	async void AnimateButton(Ellipse ellipse)
+	async void AnimateButton(VisualElement button)
 	{
-		await ellipse.ScaleTo(1.5, 100);
-		await ellipse.ScaleTo(1.0, 150);
+		double initialScale = button.Scale;
+
+		double activeScale = 1.5 * initialScale;
+
+		// animation
+		await button.ScaleTo(activeScale, 100);
+		await Task.Delay(50); // Android needs this, but why?
+		await button.ScaleTo(initialScale, 150);
+
 	}
+
+
+    //
+    protected override void OnSizeAllocated(double width, double height)
+    {
+		double density = DeviceDisplay.Current.MainDisplayInfo.Density;
+
+		// resize buttons
+		foreach(VisualElement button in ControllerGUIButtons.Children)
+		{
+			button.Scale /= density;
+			button.TranslationX /= density;
+			button.TranslationY /= density;
+		}
+
+#if WINDOWS
+		ControllerGUIContainer.Scale = 1;
+#elif ANDROID
+		ControllerGUIContainer.Scale = 2;
+#endif
+
+		base.OnSizeAllocated(width, height);
+    }
 }
 
