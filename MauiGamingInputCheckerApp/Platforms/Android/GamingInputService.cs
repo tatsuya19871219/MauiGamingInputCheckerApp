@@ -92,6 +92,12 @@ public partial class GamingInputService
             case Keycode.ButtonA: return GamingInput.KEYS.KEY_A;
             case Keycode.ButtonB: return GamingInput.KEYS.KEY_B;
             case Keycode.ButtonX: return GamingInput.KEYS.KEY_X;
+
+            case Keycode.ButtonL1: return GamingInput.KEYS.KEY_LEFTSHOULDER;
+            case Keycode.ButtonR1: return GamingInput.KEYS.KEY_RIGHTSHOULDER;
+
+            case Keycode.ButtonStart: return GamingInput.KEYS.KEY_START;
+            case Keycode.ButtonSelect: return GamingInput.KEYS.KEY_SELECT;
         }
 
         return GamingInput.KEYS.None;

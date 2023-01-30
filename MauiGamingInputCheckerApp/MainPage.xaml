@@ -5,9 +5,9 @@
              xmlns:custom="clr-namespace:MauiGamingInputCheckerApp.CustomViews"
              BackgroundColor="Gray">
 
-    <Grid RowDefinitions="1*, 1*, 1*" 
+    <Grid RowDefinitions="1*, Auto, 1*" 
           VerticalOptions="Center" HorizontalOptions="Center"
-          RowSpacing="50">
+          RowSpacing="10">
 
         <Label x:Name="StatusLabel" 
                HorizontalOptions="Center"
@@ -15,15 +15,19 @@
                FontSize="24" 
                Grid.Row="0"/>
 
-        <custom:GamingInputView x:Name="MyInput"/>
+        <custom:GamingInputView x:Name="MyInput" 
+                                Grid.Row="1"
+                                Scale="1"/>
 
         <HorizontalStackLayout HorizontalOptions="Center"
                                Spacing="30"
                                Grid.Row="2">
+            
             <Label Text="Controller #"
                    FontSize="24"/>
             <Slider x:Name="ControllerSelectSlider" 
                     WidthRequest="100"/>
+            
         </HorizontalStackLayout>
 
     </Grid>

@@ -24,6 +24,12 @@ public partial class GamingInputView : ContentView
             case GamingInput.KEYS.KEY_A: AnimateButton(KEY_2); break;
             case GamingInput.KEYS.KEY_B: AnimateButton(KEY_3); break;
             case GamingInput.KEYS.KEY_X: AnimateButton(KEY_4); break;
+
+            case GamingInput.KEYS.KEY_SELECT: AnimateButton(KEY_VIEW); break;
+            case GamingInput.KEYS.KEY_START: AnimateButton(KEY_MENU); break;
+
+            case GamingInput.KEYS.KEY_LEFTSHOULDER: AnimateButton(KEY_LEFTSHOULDER); break;
+            case GamingInput.KEYS.KEY_RIGHTSHOULDER: AnimateButton(KEY_RIGHTSHOULDER); break;
         }
     }
 

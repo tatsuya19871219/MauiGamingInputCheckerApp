@@ -13,7 +13,11 @@ public class GamingInput
         KEY_UP,
         KEY_DOWN,
         KEY_LEFT,
-        KEY_RIGHT
+        KEY_RIGHT,
+        KEY_START,
+        KEY_SELECT,
+        KEY_LEFTSHOULDER,
+        KEY_RIGHTSHOULDER
     }
 
 
