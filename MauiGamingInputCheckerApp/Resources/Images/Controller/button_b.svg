@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="500"
+   height="250"
+   viewBox="0 0 132.29167 66.145832"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="buttonA.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs9" />
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showgrid="true"
+     inkscape:zoom="2.0888419"
+     inkscape:cx="447.61645"
+     inkscape:cy="138.35418"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="1917"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer3"
+     showguides="false">
+    <inkscape:grid
+       type="xygrid"
+       id="grid136"
+       originx="0"
+       originy="0" />
+  </sodipodi:namedview>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Buttons"
+     style="display:inline;stroke:none;stroke-width:1.00013;stroke-dasharray:none">
+    <ellipse
+       style="display:inline;fill:#ff2525;fill-opacity:1;stroke:none;stroke-width:1.00013;stroke-dasharray:none;stroke-opacity:1"
+       id="path2169-8-7-5"
+       cx="115.1599"
+       cy="31.816145"
+       inkscape:label="B"
+       rx="5.2916665"
+       ry="5.291666" />
+
+  </g>
+</svg>

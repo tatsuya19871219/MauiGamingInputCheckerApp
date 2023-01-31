@@ -3,121 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiGamingInputCheckerApp.CustomViews.GamingInputView">
 
-    <ContentView.Resources>
-        <x:Double x:Key="StrokeTickness">3.0</x:Double>
-        <Color x:Key="StrokeColor">Black</Color>
-    </ContentView.Resources>
-    
     <AbsoluteLayout x:Name="ControllerGUIContainer"
-                    WidthRequest="500"
-                    Scale="1"
-                    Grid.Row="1">
+                    WidthRequest="500">
 
-        <Image x:Name="ControllerGUI" 
-                   Source="controller.png"/>
-
-        <Grid x:Name="ControllerGUIButtons" 
-                            HorizontalOptions="Start" VerticalOptions="Start">
-
-            <Grid.Resources>
-                <Style x:Key="key_dpad" TargetType="Rectangle">
-                    <Setter Property="WidthRequest" Value="30"/>
-                    <Setter Property="HeightRequest" Value="40"/>
-                    <Setter Property="Stroke" Value="{StaticResource StrokeColor}"/>
-                    <Setter Property="StrokeThickness" Value="{StaticResource StrokeTickness}"/>
-                </Style>
-                <Style x:Key="key_action" TargetType="Ellipse">
-                    <Setter Property="WidthRequest" Value="40"/>
-                    <Setter Property="HeightRequest" Value="40"/>
-                    <Setter Property="Stroke" Value="{StaticResource StrokeColor}"/>
-                    <Setter Property="StrokeThickness" Value="{StaticResource StrokeTickness}"/>
-                </Style>
-                <Style x:Key="key_option" TargetType="Rectangle">
-                    <Setter Property="WidthRequest" Value="40"/>
-                    <Setter Property="HeightRequest" Value="15"/>
-                    <Setter Property="RadiusX" Value="5"/>
-                    <Setter Property="RadiusY" Value="5"/>
-                    <Setter Property="Stroke" Value="{StaticResource StrokeColor}"/>
-                    <Setter Property="StrokeThickness" Value="{StaticResource StrokeTickness}"/>
-                </Style>
-            </Grid.Resources>
-
-            <Rectangle x:Name="KEY_UP" Style="{StaticResource key_dpad}" 
-                           Fill="Black"
-                           TranslationX="100" TranslationY="60"/>
-            <Rectangle x:Name="KEY_DOWN" Style="{StaticResource key_dpad}" 
-						   Fill="Black" 
-						   TranslationX="100" TranslationY="140"/>
-            <Rectangle x:Name="KEY_LEFT" Style="{StaticResource key_dpad}" 
-						   Fill="Black"
-						   TranslationX="60" TranslationY="100"
-						   Rotation="90"/>
-            <Rectangle x:Name="KEY_RIGHT" Style="{StaticResource key_dpad}" 
-						   Fill="Black"
-						   TranslationX="135" TranslationY="100"
-						   Rotation="90"/>
-
-
-            <Ellipse x:Name="KEY_1" Style="{StaticResource key_action}" 
-                         Fill="Yellow"
-                         TranslationX="360" TranslationY="60"/>
-            <Ellipse x:Name="KEY_2" Style="{StaticResource key_action}" 
-                         Fill="Green"
-                         TranslationX="360" TranslationY="140"/>
-            <Ellipse x:Name="KEY_3" Style="{StaticResource key_action}" 
-                         Fill="Red"
-                         TranslationX="400" TranslationY="100"/>
-            <Ellipse x:Name="KEY_4" Style="{StaticResource key_action}" 
-                         Fill="Blue"
-                         TranslationX="320" TranslationY="100"/>
-
-
-            <Rectangle x:Name="KEY_VIEW" Style="{StaticResource key_option}"
-                       Fill="Black"
-                       TranslationX="200" TranslationY="45"/>
-            <Rectangle x:Name="KEY_MENU" Style="{StaticResource key_option}"
-                       Fill="Black"
-                       TranslationX="260" TranslationY="45"/>
-
-        </Grid>
-
-        <!-- 
-        I don't know why but Path (or Frame) does not work well in the Grid above.
-        Absolute positioning via TranslationX/Y goes wrong.
-        -->
+        <Image x:Name="KEY_L1" Source="button_l1trigger.png" />
+        <Image x:Name="KEY_R1" Source="button_r1trigger.png" />
         
-        <Path x:Name="KEY_LEFTSHOULDER" 
-              Fill="Black">
-            <Path.Data>
-                <PathGeometry>
-                    <PathFigure StartPoint="0, 25" IsClosed="True">
-                        <LineSegment Point="120, 25"/>
-                        <LineSegment Point="120, 0"/>
-                        <LineSegment Point="25, 0"/>
-                        <ArcSegment Point="0, 25" 
-                                    Size="25, 25"/>
-                    </PathFigure>
-                </PathGeometry>
-            </Path.Data>
-        </Path>
-        
-        <!-- Right shoulder makes wrong animation -->
+        <Image x:Name="ControllerGUI" Source="body.png" />
 
-        <Path x:Name="KEY_RIGHTSHOULDER" 
-              Fill="Black">
-            <Path.Data>
-                <PathGeometry>
-                    <PathFigure StartPoint="500, 25" IsClosed="True">
-                        <LineSegment Point="380, 25"/>
-                        <LineSegment Point="380, 0"/>
-                        <LineSegment Point="475, 0"/>
-                        <ArcSegment Point="500, 25" 
-                                    Size="25, 25"
-                                    SweepDirection="Clockwise"/>
-                    </PathFigure>
-                </PathGeometry>
-            </Path.Data>
-        </Path>
+        <Image x:Name="KEY_UP" Source="button_dpadup.png" />
+        <Image x:Name="KEY_DOWN" Source="button_dpaddown.png" />
+        <Image x:Name="KEY_LEFT" Source="button_dpadleft.png" />
+        <Image x:Name="KEY_RIGHT" Source="button_dpadright.png" />
+
+        <Image x:Name="KEY_A" Source="button_a.png" />
+        <Image x:Name="KEY_B" Source="button_b.png" />
+        <Image x:Name="KEY_X" Source="button_x.png" />
+        <Image x:Name="KEY_Y" Source="button_y.png" />
+
+        <Image x:Name="KEY_START" Source="button_start.png" />
+        <Image x:Name="KEY_SELECT" Source="button_select.png" />
 
     </AbsoluteLayout>
     
