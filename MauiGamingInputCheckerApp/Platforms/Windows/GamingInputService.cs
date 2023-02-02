@@ -54,34 +54,21 @@ public partial class GamingInputService
         {
             var currentReading = gamepad.GetCurrentReading();
 
-            if (currentReading.Equals(lastReading))
+            var lastButtons = lastReading.Buttons;
+            var currentButtons = currentReading.Buttons;
+
+            if (currentButtons.Equals(lastButtons))
             {
-                // no input or long input
-                if (currentReading.Equals(new GamepadReading()))
-                {
-                    // no input
-                }
-                else
-                {
-                    // long input && no additional input
-                }
+                // nop
             }
             else
             {
-                // key down or key up
-                var lastButtons = lastReading.Buttons;
-                var currentButtons = currentReading.Buttons;
+                // separate key-down buttons & key-up buttons
+                var currentDetectedButtons = ~lastButtons & currentButtons;
+                var lastDetectedButtons = lastButtons & ~currentButtons;
 
-                if (lastButtons.Equals(GamepadButtons.None))
-                {
-                    // key down
-                    gamingInput.OnKeyDown(new GamingInputArgs(ConvertToKeyEnum(currentButtons)));
-                }
-                else
-                {
-                    // key up
-                    gamingInput.OnKeyUp(new GamingInputArgs(ConvertToKeyEnum(currentButtons)));
-                }
+                gamingInput.OnKeyUp(new GamingInputArgs(ConvertToKeyEnum(lastDetectedButtons)));
+                gamingInput.OnKeyDown(new GamingInputArgs(ConvertToKeyEnum(currentDetectedButtons)));
             }
 
             await Task.Delay(_samplingInterval);
@@ -93,25 +80,26 @@ public partial class GamingInputService
 
     GamingInput.KEYS ConvertToKeyEnum(GamepadButtons buttons)
     {
-        switch(buttons)
-        {
-            case GamepadButtons.DPadUp: return GamingInput.KEYS.KEY_UP;
-            case GamepadButtons.DPadDown: return GamingInput.KEYS.KEY_DOWN;
-            case GamepadButtons.DPadLeft: return GamingInput.KEYS.KEY_LEFT;
-            case GamepadButtons.DPadRight: return GamingInput.KEYS.KEY_RIGHT;
 
-            case GamepadButtons.Y: return GamingInput.KEYS.KEY_Y;
-            case GamepadButtons.A: return GamingInput.KEYS.KEY_A;
-            case GamepadButtons.B: return GamingInput.KEYS.KEY_B;
-            case GamepadButtons.X: return GamingInput.KEYS.KEY_X;
+        GamingInput.KEYS keys = new();
 
-            case GamepadButtons.LeftShoulder: return GamingInput.KEYS.KEY_LEFTSHOULDER;
-            case GamepadButtons.RightShoulder: return GamingInput.KEYS.KEY_RIGHTSHOULDER;
+        if (buttons.HasFlag(GamepadButtons.DPadUp)) keys |= GamingInput.KEYS.KEY_UP;
+        if (buttons.HasFlag(GamepadButtons.DPadDown)) keys |= GamingInput.KEYS.KEY_DOWN;
+        if (buttons.HasFlag(GamepadButtons.DPadLeft)) keys |= GamingInput.KEYS.KEY_LEFT;
+        if (buttons.HasFlag(GamepadButtons.DPadRight)) keys |= GamingInput.KEYS.KEY_RIGHT;
+            
+        if (buttons.HasFlag(GamepadButtons.A)) keys |= GamingInput.KEYS.KEY_A;
+        if (buttons.HasFlag(GamepadButtons.B)) keys |= GamingInput.KEYS.KEY_B;
+        if (buttons.HasFlag(GamepadButtons.X)) keys |= GamingInput.KEYS.KEY_X;
+        if (buttons.HasFlag(GamepadButtons.Y)) keys |= GamingInput.KEYS.KEY_Y;
 
-            case GamepadButtons.Menu: return GamingInput.KEYS.KEY_START;
-            case GamepadButtons.View: return GamingInput.KEYS.KEY_SELECT;
-        }
+        if (buttons.HasFlag(GamepadButtons.LeftShoulder)) keys |= GamingInput.KEYS.KEY_LEFTSHOULDER;
+        if (buttons.HasFlag(GamepadButtons.RightShoulder)) keys |= GamingInput.KEYS.KEY_RIGHTSHOULDER;
+            
+        if (buttons.HasFlag(GamepadButtons.Menu)) keys |= GamingInput.KEYS.KEY_START;
+        if (buttons.HasFlag(GamepadButtons.View)) keys |= GamingInput.KEYS.KEY_SELECT;
 
-        return GamingInput.KEYS.None;
+        return keys;
     }
+
 }

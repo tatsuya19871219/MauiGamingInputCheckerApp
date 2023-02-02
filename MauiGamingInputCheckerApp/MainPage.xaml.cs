@@ -16,7 +16,6 @@ public partial class MainPage : ContentPage
 
 		InitializeGamingInputService();
 
-
 	}
 
 
@@ -37,6 +36,7 @@ public partial class MainPage : ContentPage
 		foreach(var controller in _controllers)
 		{
             controller.KeyDown += KeyDownEvent;
+			controller.KeyUp += KeyUpEvent;
         }
 
 		ControllerSelectSlider.Maximum = (double)_controllers.Count;
@@ -55,14 +55,8 @@ public partial class MainPage : ContentPage
     }
 
 
-	void KeyDownEvent(GamingInputArgs args)
-	{
-
-		MyInput.KeyDown(args);
-
-    }
-
-
+	void KeyDownEvent(GamingInputArgs args) => MyInput.KeyDown(args);
+	void KeyUpEvent(GamingInputArgs args) => MyInput.KeyUp(args);
 
 
     //

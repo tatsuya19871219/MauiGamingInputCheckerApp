@@ -15,4 +15,5 @@ public class GamingInputArgs
     {
         Keys = keys;
     }
+
 }
