@@ -28,6 +28,10 @@ public class MainActivity : MauiAppCompatActivity
 
         var key = ConvertToKeyEnum?.Invoke(keyCode) ?? new GamingInput.KEYS();
 
+        var source = e.Source;
+
+        var isGamepad = source.HasFlag(InputSourceType.Gamepad); 
+
         KeyDown?.Invoke(new GamingInputArgs(key));
 
         return true;
@@ -45,59 +49,25 @@ public class MainActivity : MauiAppCompatActivity
         //return base.OnKeyUp(keyCode, e);
     }
 
-    ////public override bool OnKeyLongPress([GeneratedEnum] Keycode keyCode, KeyEvent e)
-    ////{
-    ////    return true;
-    ////    //return base.OnKeyLongPress(keyCode, e);
-    ////}
-
-    ////public override bool OnKeyMultiple([GeneratedEnum] Keycode keyCode, int repeatCount, KeyEvent e)
-    ////{
-    ////    return true;
-    ////    //return base.OnKeyMultiple(keyCode, repeatCount, e);
-    ////}
-
-    ////public override bool OnKeyShortcut([GeneratedEnum] Keycode keyCode, KeyEvent e)
-    ////{
-    ////    return true;
-    ////    //return base.OnKeyShortcut(keyCode, e);
-    ////}
-
-
-    ////public override void TakeKeyEvents(bool get)
-    ////{
-    ////    base.TakeKeyEvents(get);
-    ////}
-
-    ////public override bool DispatchKeyEvent(KeyEvent e)
-    ////{
-    ////    // Unfocused(or disabled?) before calling this event
-    ////    return base.DispatchKeyEvent(e);
-    ////}
-
-    ////public override bool DispatchKeyShortcutEvent(KeyEvent e)
-    ////{
-    ////    return base.DispatchKeyShortcutEvent(e);
-    ////}
-
-    ////public override bool SuperDispatchKeyEvent(KeyEvent e)
-    ////{
-    ////    return base.SuperDispatchKeyEvent(e);
-    ////}
-
-    //public override bool DispatchGenericMotionEvent(MotionEvent ev)
-    //{
-    //    //return true;
-    //    return base.DispatchGenericMotionEvent(ev);
-    //}
-
     public override bool OnGenericMotionEvent(MotionEvent e)
     {
 
-        //KeyEvent keyEvent = new(e.DownTime, e.EventTime, e.ActionIndex);
+        //if (e.Source == InputSourceType.Joystick)
+        //    return base.OnGenericMotionEvent(e);
+
         
+        // for analog sticks
+
+        float xaxis = e.GetAxisValue(Axis.X);
+        float yaxis = e.GetAxisValue(Axis.Y);
+
+
 
         //return true;
         return base.OnGenericMotionEvent(e);
     }
+
+
+    
+
 }

@@ -16,6 +16,24 @@ public partial class MainPage : ContentPage
 
 		InitializeGamingInputService();
 
+		InitializePlatformSpecificSettings();
+
+		InitializeFocus();
+
+	}
+
+	partial void InitializePlatformSpecificSettings();
+
+
+	async void InitializeFocus()
+	{
+		while(true)
+		{
+			if (MyLayout.Handler != null) break;
+			await Task.Delay(100);
+		}
+
+		MyLayout.Focus();
 	}
 
 
@@ -39,21 +57,21 @@ public partial class MainPage : ContentPage
 			controller.KeyUp += KeyUpEvent;
         }
 
-		ControllerSelectSlider.Maximum = (double)_controllers.Count;
+		ControllerSelector.IsVisible = true;
+        ControllerSelectStepper.Minimum = 1;
 
-		if (_controllers.Count == 1)
+        if (_controllers.Count > 1)
 		{
-            StatusLabel.Text = $"Controller is detected.";
+            ControllerSelectStepper.Maximum = _controllers.Count;
 
-			ControllerSelectSlider.IsEnabled = false;
+			ControllerSelectStepper.IsEnabled = true;
         }
-        else
-		{
-            StatusLabel.Text = $"{_controllers.Count} controllers are detected.";
 
-        }
+
+        if (_controllers.Count == 1) StatusLabel.Text = $"Controller is detected.";
+        else StatusLabel.Text = $"{_controllers.Count} controllers are detected.";
+
     }
-
 
 	void KeyDownEvent(GamingInputArgs args) => MyInput.KeyDown(args);
 	void KeyUpEvent(GamingInputArgs args) => MyInput.KeyUp(args);
@@ -80,5 +98,15 @@ public partial class MainPage : ContentPage
 
 		base.OnSizeAllocated(width, height);
     }
+
+
+  //  //
+  //  protected override void OnHandlerChanged()
+  //  {
+  //      base.OnHandlerChanged();
+
+		////this.Focus();
+		//MyLayout.Focus();
+  //  }
 }
 

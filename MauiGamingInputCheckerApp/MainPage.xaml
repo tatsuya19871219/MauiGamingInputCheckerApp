@@ -6,9 +6,12 @@
              Shell.NavBarIsVisible="False"
              BackgroundColor="#93e199">
 
-    <Grid RowDefinitions="1*, Auto, 1*" 
+    <Grid x:Name="MyLayout" 
+          RowDefinitions="1*, Auto, 1*" 
           VerticalOptions="Center" HorizontalOptions="Center"
           RowSpacing="10">
+
+        <Entry TranslationY="-100"/> <!-- Focusable Dummy to prevent dpad input makes screen grayish -->
 
         <Label x:Name="StatusLabel" 
                HorizontalOptions="Center"
@@ -20,14 +23,19 @@
                                 Grid.Row="1"
                                 Scale="1"/>
 
-        <HorizontalStackLayout HorizontalOptions="Center"
+        <HorizontalStackLayout x:Name="ControllerSelector" 
+                               HorizontalOptions="Center"
                                Spacing="30"
                                Grid.Row="2">
             
             <Label Text="Controller #"
                    FontSize="24"/>
-            <Slider x:Name="ControllerSelectSlider" 
-                    WidthRequest="100"/>
+            <Label x:Name="ControllerNumber"
+                   Text="{Binding Value, Source={x:Reference ControllerSelectStepper}}"
+                   FontSize="24"/>
+            <Stepper x:Name="ControllerSelectStepper"
+                     IsEnabled="False"
+                     WidthRequest="100"/>
             
         </HorizontalStackLayout>
 
