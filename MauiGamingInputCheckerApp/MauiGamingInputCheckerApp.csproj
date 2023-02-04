@@ -59,16 +59,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Platforms\Android\MainPage.xaml.cs">
-	    <DependentUpon>%(Filename)</DependentUpon>
-	    <ExcludeFromCurrentConfiguration>true</ExcludeFromCurrentConfiguration>
-	  </Compile>
-	  <Compile Update="Platforms\Windows\MainPage.xaml.cs">
-	    <DependentUpon>%(Filename)</DependentUpon>
-	  </Compile>
-	</ItemGroup>
-
-	<ItemGroup>
 	  <MauiXaml Update="CustomViews\GamingInputView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

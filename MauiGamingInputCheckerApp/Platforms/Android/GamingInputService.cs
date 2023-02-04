@@ -27,20 +27,26 @@ public partial class GamingInputService
             {
                 InputDevice device = InputDevice.GetDevice(deviceId);
 
+                var source = device.Sources;
+
+                var isGamepad = source.HasFlag(InputSourceType.Gamepad);
+
+                if (isGamepad) gamepads.Add(device);
+
                 // for test
-                switch (device.Name) 
-                {
-                    case "SNES Controller":
-                    case "Xbox Wireless Controller":
-                    case "Razer Kishi":
+                //switch (device.Name) 
+                //{
+                //    case "SNES Controller":
+                //    case "Xbox Wireless Controller":
+                //    case "Razer Kishi":
 
-                        gamepads.Add(device);
-                        break;
+                //        gamepads.Add(device);
+                //        break;
 
-                    default: 
+                //    default: 
                         
-                        break;
-                }
+                //        break;
+                //}
 
             }
             
@@ -54,8 +60,9 @@ public partial class GamingInputService
 
             var gamingInput = new GamingInput();
 
+            // set properties of gaming input
             gamingInput.SetDeviceID(gamepad.Id);
-
+            gamingInput.SetDeviceName(gamepad.Name);
             gamingInputs.Add(gamingInput);
         }
 
@@ -74,8 +81,8 @@ public partial class GamingInputService
         MainActivity activity = MainActivity.Instance;
 
         activity.ConvertToKeyEnum += ConvertToKeyEnum;
-        activity.KeyDown += gamingInput.OnKeyDown;
-        activity.KeyUp += gamingInput.OnKeyUp;
+        activity.RegisterKeyDownAction(gamingInput.DeviceId.Value, gamingInput.OnKeyDown);
+        activity.RegisterKeyUpAction(gamingInput.DeviceId.Value, gamingInput.OnKeyUp);
 
     }
 

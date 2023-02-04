@@ -16,13 +16,9 @@ public partial class MainPage : ContentPage
 
 		InitializeGamingInputService();
 
-		InitializePlatformSpecificSettings();
-
 		InitializeFocus();
 
 	}
-
-	partial void InitializePlatformSpecificSettings();
 
 
 	async void InitializeFocus()
@@ -51,14 +47,15 @@ public partial class MainPage : ContentPage
 
 		_controllers = _service.GamingInputs;
 
-		foreach(var controller in _controllers)
-		{
-            controller.KeyDown += KeyDownEvent;
-			controller.KeyUp += KeyUpEvent;
-        }
+		//foreach(var controller in _controllers) 
+		//{
+		//	controller.KeyDown += KeyDownEvent;
+		//	controller.KeyUp += KeyUpEvent;
+  //      }
 
 		ControllerSelector.IsVisible = true;
         ControllerSelectStepper.Minimum = 1;
+		ControllerSelectStepper.Value = 1;
 
         if (_controllers.Count > 1)
 		{
@@ -73,8 +70,8 @@ public partial class MainPage : ContentPage
 
     }
 
-	void KeyDownEvent(GamingInputArgs args) => MyInput.KeyDown(args);
-	void KeyUpEvent(GamingInputArgs args) => MyInput.KeyUp(args);
+	//void KeyDownEvent(GamingInputArgs args) => MyInput.KeyDown(args);
+	//void KeyUpEvent(GamingInputArgs args) => MyInput.KeyUp(args);
 
 
     //
@@ -99,14 +96,28 @@ public partial class MainPage : ContentPage
 		base.OnSizeAllocated(width, height);
     }
 
+    private void ControllerSelectStepper_ValueChanged(object sender, ValueChangedEventArgs e)
+    {
+		for(int k=0; k< _controllers.Count; k++) 
+		{
+			//if(e.OldValue == k+1) _controllers[k].Disable();
+			if (e.NewValue == k + 1)
+			{
+				//_controllers[k].Enable();
+				MyInput.Controller = _controllers[k];
+			}
+			//else _controllers[k].Disable();
+		}
+    }
 
-  //  //
-  //  protected override void OnHandlerChanged()
-  //  {
-  //      base.OnHandlerChanged();
 
-		////this.Focus();
-		//MyLayout.Focus();
-  //  }
+    //  //
+    //  protected override void OnHandlerChanged()
+    //  {
+    //      base.OnHandlerChanged();
+
+    ////this.Focus();
+    //MyLayout.Focus();
+    //  }
 }
 

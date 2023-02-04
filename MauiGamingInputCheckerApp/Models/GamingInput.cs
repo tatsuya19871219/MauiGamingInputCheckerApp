@@ -24,13 +24,31 @@ public class GamingInput
 
     public int? DeviceId { get; private set; }
 
+    public string? DeviceName { get; private set; }
+
+    //public bool IsEnable { get; private set; }
+
     public Action<GamingInputArgs> KeyDown;
     public Action<GamingInputArgs> KeyUp;
 
-    public void OnKeyDown(GamingInputArgs args) => KeyDown?.Invoke(args);
-    public void OnKeyUp(GamingInputArgs args) => KeyUp?.Invoke(args);
+    //public void Enable() => IsEnable = true;
+    //public void Disable() => IsEnable = false;
+
+    public void OnKeyDown(GamingInputArgs args)
+    {
+        //if (IsEnable) 
+        KeyDown?.Invoke(args);
+    }
+
+    public void OnKeyUp(GamingInputArgs args)
+    {
+        //if (IsEnable)
+        KeyUp?.Invoke(args);
+    }
 
 
+    
     public void SetDeviceID(int id) => DeviceId = id;
 
+    public void SetDeviceName(string name) => DeviceName = name;
 }

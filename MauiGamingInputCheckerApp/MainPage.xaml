@@ -11,7 +11,8 @@
           VerticalOptions="Center" HorizontalOptions="Center"
           RowSpacing="10">
 
-        <Entry TranslationY="-100"/> <!-- Focusable Dummy to prevent dpad input makes screen grayish -->
+        <!--Focusable Dummy to prevent dpad input makes screen grayish-->
+        <Entry TranslationY="-100"/>  
 
         <Label x:Name="StatusLabel" 
                HorizontalOptions="Center"
@@ -35,6 +36,7 @@
                    FontSize="24"/>
             <Stepper x:Name="ControllerSelectStepper"
                      IsEnabled="False"
+                     ValueChanged="ControllerSelectStepper_ValueChanged"
                      WidthRequest="100"/>
             
         </HorizontalStackLayout>

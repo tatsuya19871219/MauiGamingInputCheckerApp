@@ -5,6 +5,31 @@ namespace MauiGamingInputCheckerApp.CustomViews;
 
 public partial class GamingInputView : ContentView
 {
+
+    // bindable gaming input
+    public static BindableProperty GamingInputProperty
+        = BindableProperty.Create(nameof(Controller), typeof(GamingInput), typeof(GamingInputView), null);
+
+    public GamingInput? Controller
+    {
+        get => (GamingInput)GetValue(GamingInputProperty);
+        set
+        {
+            if (Controller != null)
+            {
+                var ControllerLast = Controller;
+                ControllerLast.KeyDown -= KeyDown;
+                ControllerLast.KeyUp -= KeyUp;
+            }
+
+            SetValue(GamingInputProperty, value);
+
+            // Overwrite actions for animation
+            Controller.KeyDown += KeyDown;
+            Controller.KeyUp += KeyUp;
+        }
+    }
+
 	public GamingInputView()
 	{
 		InitializeComponent();

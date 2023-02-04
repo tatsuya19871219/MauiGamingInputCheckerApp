@@ -14,8 +14,8 @@ public class MainActivity : MauiAppCompatActivity
     static public MainActivity Instance { get; private set; }
 
     public Func<Keycode, GamingInput.KEYS> ConvertToKeyEnum;
-    public Action<GamingInputArgs> KeyDown;
-    public Action<GamingInputArgs> KeyUp;
+    Dictionary<int, Action<GamingInputArgs>> _keyDownDictionary = new();
+    Dictionary<int, Action<GamingInputArgs>> _keyUpDictionary = new();
 
     protected override void OnStart()
     {
@@ -23,30 +23,52 @@ public class MainActivity : MauiAppCompatActivity
         base.OnStart();
     }
 
+    public void RegisterKeyDownAction(int id, Action<GamingInputArgs> action)
+    {
+        _keyDownDictionary.Add(id, action);
+    }
+
+    public void RegisterKeyUpAction(int id, Action<GamingInputArgs> action)
+    {
+        _keyUpDictionary.Add(id, action);
+    }
+
     public override bool OnKeyDown([GeneratedEnum] Keycode keyCode, KeyEvent e)
     {
 
-        var key = ConvertToKeyEnum?.Invoke(keyCode) ?? new GamingInput.KEYS();
+        int deviceID = e.DeviceId;
 
-        var source = e.Source;
+        if (_keyDownDictionary.ContainsKey(deviceID))
+        {
+            var keyDown = _keyDownDictionary[deviceID];
 
-        var isGamepad = source.HasFlag(InputSourceType.Gamepad); 
+            var key = ConvertToKeyEnum?.Invoke(keyCode) ?? new GamingInput.KEYS();
 
-        KeyDown?.Invoke(new GamingInputArgs(key));
+            keyDown?.Invoke(new GamingInputArgs(key));
 
-        return true;
-        //return base.OnKeyDown(keyCode, e);
+            return true;
+        }
+
+        return base.OnKeyDown(keyCode, e);
     }
 
     public override bool OnKeyUp([GeneratedEnum] Keycode keyCode, KeyEvent e)
     {
 
-        var key = ConvertToKeyEnum?.Invoke(keyCode) ?? new GamingInput.KEYS();
+        int deviceID = e.DeviceId;
 
-        KeyUp?.Invoke(new GamingInputArgs(key));
+        if (_keyUpDictionary.ContainsKey(deviceID))
+        {
+            var keyUp = _keyUpDictionary[deviceID];
 
-        return true;
-        //return base.OnKeyUp(keyCode, e);
+            var key = ConvertToKeyEnum?.Invoke(keyCode) ?? new GamingInput.KEYS();
+
+            keyUp?.Invoke(new GamingInputArgs(key));
+
+            return true;
+        }
+
+        return base.OnKeyUp(keyCode, e);
     }
 
     public override bool OnGenericMotionEvent(MotionEvent e)
