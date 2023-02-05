@@ -1,5 +1,6 @@
 using MauiGamingInputCheckerApp.Models;
 using System.Net;
+using static MauiGamingInputCheckerApp.Models.GamingInput;
 
 namespace MauiGamingInputCheckerApp.CustomViews;
 
@@ -27,12 +28,16 @@ public partial class GamingInputView : ContentView
             // Overwrite actions for animation
             Controller.KeyDown += KeyDown;
             Controller.KeyUp += KeyUp;
+
+            // Update binding context
+            BindingContext = Controller;
         }
     }
 
 	public GamingInputView()
 	{
 		InitializeComponent();
+
 
         KEY_UP.Opacity= 0;
         KEY_DOWN.Opacity= 0;
@@ -46,40 +51,22 @@ public partial class GamingInputView : ContentView
 
     void KeyAnimate(GamingInputArgs args, bool IsHold)
     {
-        if (args.Keys.HasFlag(GamingInput.KEYS.KEY_UP)) AnimateDpad(KEY_UP, IsHold);
-        if (args.Keys.HasFlag(GamingInput.KEYS.KEY_DOWN)) AnimateDpad(KEY_DOWN, IsHold);
-        if (args.Keys.HasFlag(GamingInput.KEYS.KEY_LEFT)) AnimateDpad(KEY_LEFT, IsHold);
-        if (args.Keys.HasFlag(GamingInput.KEYS.KEY_RIGHT)) AnimateDpad(KEY_RIGHT, IsHold);
+        if (args.IsPressed(KEYS.KEY_UP)) AnimateDpad(KEY_UP, IsHold);
+        if (args.IsPressed(KEYS.KEY_DOWN)) AnimateDpad(KEY_DOWN, IsHold);
+        if (args.IsPressed(KEYS.KEY_LEFT)) AnimateDpad(KEY_LEFT, IsHold);
+        if (args.IsPressed(KEYS.KEY_RIGHT)) AnimateDpad(KEY_RIGHT, IsHold);
 
-        if (args.Keys.HasFlag(GamingInput.KEYS.KEY_A)) AnimateActionButton(KEY_A, IsHold);
-        if (args.Keys.HasFlag(GamingInput.KEYS.KEY_B)) AnimateActionButton(KEY_B, IsHold);
-        if (args.Keys.HasFlag(GamingInput.KEYS.KEY_X)) AnimateActionButton(KEY_X, IsHold);
-        if (args.Keys.HasFlag(GamingInput.KEYS.KEY_Y)) AnimateActionButton(KEY_Y, IsHold);
+        if (args.IsPressed(KEYS.KEY_A)) AnimateActionButton(KEY_A, IsHold);
+        if (args.IsPressed(KEYS.KEY_B)) AnimateActionButton(KEY_B, IsHold);
+        if (args.IsPressed(KEYS.KEY_X)) AnimateActionButton(KEY_X, IsHold);
+        if (args.IsPressed(KEYS.KEY_Y)) AnimateActionButton(KEY_Y, IsHold);
 
-        if (args.Keys.HasFlag(GamingInput.KEYS.KEY_SELECT)) AnimateOption(KEY_SELECT, IsHold);
-        if (args.Keys.HasFlag(GamingInput.KEYS.KEY_START)) AnimateOption(KEY_START, IsHold);
+        if (args.IsPressed(KEYS.KEY_SELECT)) AnimateOption(KEY_SELECT, IsHold);
+        if (args.IsPressed(KEYS.KEY_START)) AnimateOption(KEY_START, IsHold);
 
-        if (args.Keys.HasFlag(GamingInput.KEYS.KEY_LEFTSHOULDER)) AnimateTrigger(KEY_L1, -1, IsHold);
-        if (args.Keys.HasFlag(GamingInput.KEYS.KEY_RIGHTSHOULDER)) AnimateTrigger(KEY_R1, 1, IsHold);
+        if (args.IsPressed(KEYS.KEY_LEFTSHOULDER)) AnimateTrigger(KEY_L1, -1, IsHold);
+        if (args.IsPressed(KEYS.KEY_RIGHTSHOULDER)) AnimateTrigger(KEY_R1, 1, IsHold);
 
-        //switch (args.Keys)
-        //{
-        //    case GamingInput.KEYS.KEY_UP: AnimateDpad(KEY_UP, IsHold); break;
-        //    case GamingInput.KEYS.KEY_DOWN: AnimateDpad(KEY_DOWN, IsHold); break;
-        //    case GamingInput.KEYS.KEY_LEFT: AnimateDpad(KEY_LEFT, IsHold); break;
-        //    case GamingInput.KEYS.KEY_RIGHT: AnimateDpad(KEY_RIGHT, IsHold); break;
-
-        //    case GamingInput.KEYS.KEY_Y: AnimateActionButton(KEY_Y, IsHold); break;
-        //    case GamingInput.KEYS.KEY_A: AnimateActionButton(KEY_A, IsHold); break;
-        //    case GamingInput.KEYS.KEY_B: AnimateActionButton(KEY_B, IsHold); break;
-        //    case GamingInput.KEYS.KEY_X: AnimateActionButton(KEY_X, IsHold); break;
-
-        //    case GamingInput.KEYS.KEY_SELECT: AnimateOption(KEY_SELECT, IsHold); break;
-        //    case GamingInput.KEYS.KEY_START: AnimateOption(KEY_START, IsHold); break;
-
-        //    case GamingInput.KEYS.KEY_LEFTSHOULDER: AnimateTrigger(KEY_L1, -1, IsHold); break;
-        //    case GamingInput.KEYS.KEY_RIGHTSHOULDER: AnimateTrigger(KEY_R1, 1, IsHold); break;
-        //}
     }
 
     // Image parts are same size as body, therefore the default anchor of animation is set to be origin.

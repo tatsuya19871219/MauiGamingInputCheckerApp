@@ -24,6 +24,9 @@
         <Image x:Name="KEY_START" Source="button_start.png" />
         <Image x:Name="KEY_SELECT" Source="button_select.png" />
 
+        <Label x:Name="INFO_TEXT" Text="{Binding DeviceName}" FontSize="20"/>
+        <Switch IsToggled="{Binding IsPressedKeyA}"/>
+
     </AbsoluteLayout>
     
 </ContentView>

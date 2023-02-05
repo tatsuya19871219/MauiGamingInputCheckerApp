@@ -1,8 +1,10 @@
-﻿
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+
 namespace MauiGamingInputCheckerApp.Models;
 
-public class GamingInput
+public partial class GamingInput : ObservableObject
 {
+
     [Flags]
     public enum KEYS
     {
@@ -21,28 +23,36 @@ public class GamingInput
         KEY_RIGHTSHOULDER = 2048
     }
 
+    [ObservableProperty] bool isPressedKeyA = false;
+    [ObservableProperty] bool isPressedKeyB = false;
+    [ObservableProperty] bool isPressedKeyX = false;
+    [ObservableProperty] bool isPressedKeyY = false;
+
 
     public int? DeviceId { get; private set; }
 
     public string? DeviceName { get; private set; }
 
-    //public bool IsEnable { get; private set; }
 
     public Action<GamingInputArgs> KeyDown;
     public Action<GamingInputArgs> KeyUp;
 
-    //public void Enable() => IsEnable = true;
-    //public void Disable() => IsEnable = false;
 
     public void OnKeyDown(GamingInputArgs args)
     {
-        //if (IsEnable) 
+
+        UpdateObservableProperties(args);
+        //IsPressedKeyA = args.IsPressed(KEYS.KEY_A);
+        //DeviceName = "hoge";
+
         KeyDown?.Invoke(args);
     }
 
+
     public void OnKeyUp(GamingInputArgs args)
     {
-        //if (IsEnable)
+        UpdateObservableProperties(args);
+
         KeyUp?.Invoke(args);
     }
 
@@ -51,4 +61,14 @@ public class GamingInput
     public void SetDeviceID(int id) => DeviceId = id;
 
     public void SetDeviceName(string name) => DeviceName = name;
+
+
+    private void UpdateObservableProperties(GamingInputArgs args)
+    {
+        IsPressedKeyA = args.IsPressed(KEYS.KEY_A);
+        IsPressedKeyB = args.IsPressed(KEYS.KEY_B);
+        IsPressedKeyX = args.IsPressed(KEYS.KEY_X);
+        IsPressedKeyY = args.IsPressed(KEYS.KEY_Y);
+    }
+
 }

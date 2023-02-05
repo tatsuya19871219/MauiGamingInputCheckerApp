@@ -16,4 +16,7 @@ public class GamingInputArgs
         Keys = keys;
     }
 
+    // Utility methods
+    public bool IsPressed(GamingInput.KEYS key) => Keys.HasFlag(key);
+
 }

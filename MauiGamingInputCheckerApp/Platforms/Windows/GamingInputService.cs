@@ -12,7 +12,7 @@ namespace MauiGamingInputCheckerApp.Services;
 public partial class GamingInputService
 {
 
-    int _samplingInterval = 100;
+    int _samplingInterval = 10;
 
     async private partial Task<List<GamingInput>> GetGamingInputsAsync()
     {
@@ -23,15 +23,19 @@ public partial class GamingInputService
         while (true)
         {
             if (Gamepad.Gamepads.Count > 0) break;
-            await Task.Delay(1000);
+            await Task.Delay(100);
         }
 
+        int id = 0;
 
         foreach(var gamepad in Gamepad.Gamepads)
         {
             gamepads.Add(gamepad);
 
             var gamingInput = new GamingInput();
+
+            gamingInput.SetDeviceID(++id);
+            gamingInput.SetDeviceName($"Gamepad #{id}");
 
             gamingInputs.Add(gamingInput);
         }
