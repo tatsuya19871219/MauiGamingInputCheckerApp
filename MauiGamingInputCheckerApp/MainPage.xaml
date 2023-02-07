@@ -12,7 +12,7 @@
           RowSpacing="10">
 
         <!--Focusable Dummy to prevent dpad input makes screen grayish-->
-        <Entry TranslationY="-100"/>  
+        <Entry x:Name="DummyEntryForFocusing" TranslationY="-100"/>  
 
         <Label x:Name="StatusLabel" 
                HorizontalOptions="Center"
@@ -21,6 +21,7 @@
                Grid.Row="0"/>
 
         <custom:GamingInputView x:Name="MyInput" 
+                                WidthRequest="500"
                                 Grid.Row="1"
                                 Scale="1"/>
 

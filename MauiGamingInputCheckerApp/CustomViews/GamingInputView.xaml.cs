@@ -38,15 +38,14 @@ public partial class GamingInputView : ContentView
 	{
 		InitializeComponent();
 
+        KEY_L1.AnchorX = 0.5;
+        KEY_L1.AnchorY = 0.5;
+        KEY_R1.AnchorX = 0.5;
+        KEY_R1.AnchorY = 0.5;
+    }
 
-        KEY_UP.Opacity= 0;
-        KEY_DOWN.Opacity= 0;
-        KEY_LEFT.Opacity= 0;
-        KEY_RIGHT.Opacity= 0;
-	}
 
-	
-	public void KeyDown(GamingInputArgs args) => KeyAnimate(args, true);
+    public void KeyDown(GamingInputArgs args) => KeyAnimate(args, true);
     public void KeyUp(GamingInputArgs args) => KeyAnimate(args, false);
 
     void KeyAnimate(GamingInputArgs args, bool IsHold)
@@ -86,25 +85,25 @@ public partial class GamingInputView : ContentView
 
     async void AnimateDpad(VisualElement dpad, bool IsHold)
     {
-        if(IsHold) await dpad.FadeTo(100, 100);
-        else await dpad.FadeTo(0, 50);
+        if(IsHold) await dpad.ScaleTo(1.2, 100);
+        else await dpad.ScaleTo(1, 50);
     }
 
     async void AnimateTrigger(VisualElement trigger, int direction, bool IsHold)
     {
-        if(IsHold) await trigger.RotateTo(direction*10, 50);
+        if (IsHold) await trigger.RotateTo(direction*5, 50);
         else await trigger.RotateTo(0, 100);
     }
 
     async void AnimateOption(VisualElement button, bool IsHold)
     {
-        if(IsHold) await button.FadeTo(0, 100);
-        else await button.FadeTo(100, 50);
+        if(IsHold) await button.ScaleTo(1.2, 100);
+        else await button.ScaleTo(1, 50);
     }
 
     async void AnimateActionButton(VisualElement button, bool IsHold)
     {
-        if(IsHold) await button.FadeTo(0, 100);
-        else await button.FadeTo(100, 50);
+        if(IsHold) await button.ScaleTo(1.2, 100);
+        else await button.ScaleTo(1, 50);
     }
 }

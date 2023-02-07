@@ -1,60 +1,35 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   width="500"
-   height="250"
-   viewBox="0 0 132.29167 66.145832"
-   version="1.1"
-   id="svg5"
-   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
-   sodipodi:docname="buttonA.svg"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs9" />
-  <sodipodi:namedview
-     id="namedview7"
-     pagecolor="#ffffff"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:document-units="px"
-     showgrid="true"
-     inkscape:zoom="2.0888419"
-     inkscape:cx="447.61645"
-     inkscape:cy="138.35418"
-     inkscape:window-width="1920"
-     inkscape:window-height="1009"
-     inkscape:window-x="1917"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="layer3"
-     showguides="false">
-    <inkscape:grid
-       type="xygrid"
-       id="grid136"
-       originx="0"
-       originy="0" />
-  </sodipodi:namedview>
-  <g
-     inkscape:groupmode="layer"
-     id="layer3"
-     inkscape:label="Buttons"
-     style="display:inline;stroke:none;stroke-width:1.00013;stroke-dasharray:none">
-    <ellipse
-       style="display:inline;fill:#49ff39;fill-opacity:1;stroke:none;stroke-width:1.00013;stroke-dasharray:none;stroke-opacity:1"
-       id="path2169-8"
-       cx="105.89948"
-       cy="41.076561"
-       inkscape:label="A"
-       rx="5.2916665"
-       ry="5.291666" />
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xml="http://www.w3.org/XML/1998/namespace" width="500" height="250" viewBox="0, 0, 132.29167, 66.14583" id="svg5" p3:version="1.2.2 (732a01da63, 2022-12-09)" p4:docname="controller_fullcomponent.svg" xmlns:p4="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:p3="http://www.inkscape.org/namespaces/inkscape">
+  <namedview id="namedview7" pagecolor="#ffffff" bordercolor="#000000" borderopacity="0.25" p3:showpageshadow="2" p3:pageopacity="0.0" p3:pagecheckerboard="0" p3:deskcolor="#d1d1d1" p3:document-units="px" showgrid="true" p3:zoom="2.0888419" p3:cx="184.79139" p3:cy="138.35418" p3:window-width="1920" p3:window-height="1009" p3:window-x="1917" p3:window-y="-8" p3:window-maximized="1" p3:current-layer="layer1" showguides="false">
+    <grid id="grid136" type="xygrid" originx="0" originy="0" />
+  </namedview>
+  <defs id="defs2">
+    <filter x="-0.08766218" y="-0.2121054" width="1.223918" height="1.541786" id="filter1297" color-interpolation-filters="sRGB" p3:label="Drop Shadow" p3:menu="Image Paint and Draw" p3:menu-tooltip="Uses vertical specular light to draw lines">
+      <feGaussianBlur stdDeviation="1.5" in="SourceGraphic" result="result3" id="feGaussianBlur1271" />
+      <feComponentTransfer in="result3" result="result1" id="feComponentTransfer1279">
+        <feFuncR type="discrete" tableValues="0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1" id="feFuncR1273" />
+        <feFuncG type="discrete" tableValues="0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1" id="feFuncG1275" />
+        <feFuncB type="discrete" tableValues="0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1" id="feFuncB1277" />
+      </feComponentTransfer>
+      <feGaussianBlur stdDeviation="0.01" result="result5" id="feGaussianBlur1281" />
+      <feBlend mode="lighten" in2="result5" in="result5" result="result6" id="feBlend1283" />
+      <feColorMatrix type="luminanceToAlpha" in="result6" result="result2" id="feColorMatrix1285" />
+      <feSpecularLighting surfaceScale="5" specularConstant="1" specularExponent="20" in="result2" result="result9" id="feSpecularLighting1289">
+        <feDistantLight azimuth="180" elevation="90" id="feDistantLight1287" />
+      </feSpecularLighting>
+      <feComposite operator="arithmetic" k1="0.4" k3="0.7" in2="result6" in="result9" result="result3" id="feComposite1291" />
+      <feBlend mode="normal" in2="result1" in="result3" result="result8" id="feBlend1293" />
+      <feComposite operator="in" in2="SourceGraphic" in="result8" result="fbSourceGraphic" id="feComposite1295" />
+      <feColorMatrix values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0" in="fbSourceGraphic" result="fbSourceGraphicAlpha" id="feColorMatrix1305" />
+      <feFlood flood-color="#000000" flood-opacity="0.498039" in="fbSourceGraphic" result="flood" id="feFlood1307" />
+      <feComposite operator="in" in2="fbSourceGraphic" in="flood" result="composite1" id="feComposite1309" />
+      <feGaussianBlur stdDeviation="3" in="composite1" result="blur" id="feGaussianBlur1311" />
+      <feOffset dx="0" dy="0" result="offset" id="feOffset1313" />
+      <feComposite operator="over" in2="offset" in="fbSourceGraphic" result="composite2" id="feComposite1315" />
+    </filter>
+  </defs>
+  <g id="layer3" stroke-width="1.000125" stroke-dasharray="none" p3:groupmode="layer" p3:label="Buttons" style="stroke:none;">
+    <ellipse cx="105.8995" cy="41.07656" rx="5.291667" ry="5.291666" id="path2169-8" stroke-width="1.00013" stroke-dasharray="none" fill-opacity="1" stroke-opacity="1" p3:label="A" style="fill:#49FF39;" />
   </g>
 </svg>

@@ -16,7 +16,11 @@ public partial class MainPage : ContentPage
 
 		InitializeGamingInputService();
 
+#if WINDOWS
+		DummyEntryForFocusing.IsVisible = false;
+#elif ANDROID
 		InitializeFocus();
+#endif
 
 	}
 

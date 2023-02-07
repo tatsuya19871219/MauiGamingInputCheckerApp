@@ -3,30 +3,51 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiGamingInputCheckerApp.CustomViews.GamingInputView">
 
-    <AbsoluteLayout x:Name="ControllerGUIContainer"
-                    WidthRequest="500">
+    <Grid x:Name="ControllerGUIContainer">
 
-        <Image x:Name="KEY_L1" Source="button_l1trigger.png" />
-        <Image x:Name="KEY_R1" Source="button_r1trigger.png" />
-        
-        <Image x:Name="ControllerGUI" Source="body.png" />
+        <Image x:Name="KEY_L1" Source="button_l1trigger.png" 
+               AnchorX="0.125" AnchorY="0.233"/>
+        <Image x:Name="KEY_R1" Source="button_r1trigger.png" 
+               AnchorX="0.876" AnchorY="0.233"/>
 
-        <Image x:Name="KEY_UP" Source="button_dpadup.png" />
-        <Image x:Name="KEY_DOWN" Source="button_dpaddown.png" />
-        <Image x:Name="KEY_LEFT" Source="button_dpadleft.png" />
-        <Image x:Name="KEY_RIGHT" Source="button_dpadright.png" />
+        <Image x:Name="ControllerGUI" Source="body.png" 
+               AnchorX="0.50" AnchorY="0.48"/>
 
-        <Image x:Name="KEY_A" Source="button_a.png" />
-        <Image x:Name="KEY_B" Source="button_b.png" />
-        <Image x:Name="KEY_X" Source="button_x.png" />
-        <Image x:Name="KEY_Y" Source="button_y.png" />
+        <Image Source="button_dpad_up.png" />
+        <Image Source="button_dpad_down.png" />
+        <Image Source="button_dpad_left.png" />
+        <Image Source="button_dpad_right.png" />
 
-        <Image x:Name="KEY_START" Source="button_start.png" />
-        <Image x:Name="KEY_SELECT" Source="button_select.png" />
+        <Image Source="button_dpad_center.png" />
 
-        <Label x:Name="INFO_TEXT" Text="{Binding DeviceName}" FontSize="20"/>
-        <Switch IsToggled="{Binding IsPressedKeyA}"/>
+        <Image x:Name="KEY_UP" Source="button_up.png" 
+               AnchorX="0.21" AnchorY="0.28"/>
+        <Image x:Name="KEY_DOWN" Source="button_down.png" 
+               AnchorX="0.21" AnchorY="0.68"/>
+        <Image x:Name="KEY_LEFT" Source="button_left.png" 
+               AnchorX="0.11" AnchorY="0.48"/>
+        <Image x:Name="KEY_RIGHT" Source="button_right.png" 
+               AnchorX="0.31" AnchorY="0.48"/>
 
-    </AbsoluteLayout>
+        <Image x:Name="KEY_A" Source="button_a.png" 
+               AnchorX="0.80" AnchorY="0.62"/>
+        <Image x:Name="KEY_B" Source="button_b.png" 
+               AnchorX="0.87" AnchorY="0.48"/>
+        <Image x:Name="KEY_X" Source="button_x.png" 
+               AnchorX="0.73" AnchorY="0.48"/>
+        <Image x:Name="KEY_Y" Source="button_y.png" 
+               AnchorX="0.80" AnchorY="0.34"/>
+
+        <Image x:Name="KEY_START" Source="button_start.png" 
+               AnchorX="0.55" AnchorY="0.45"/>
+        <Image x:Name="KEY_SELECT" Source="button_select.png" 
+               AnchorX="0.45" AnchorY="0.45"/>
+
+        <Label x:Name="INFO_TEXT" Text="{Binding DeviceName}" 
+               HorizontalOptions="Center"
+               FontSize="20"/>
+        <!--<Switch IsToggled="{Binding IsPressedKeyA}"/>-->
+
+    </Grid>
     
 </ContentView>
