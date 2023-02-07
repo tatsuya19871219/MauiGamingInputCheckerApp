@@ -1,5 +1,5 @@
 # MauiGamingInputCheckerApp
-An application for checking game controllers (gamepads) to confirm button operation.
+An application for checking game controllers (gamepads) to confirm button operation. DirectInput is not supported. I have checked the app works fine for Xbox controllers and Razer Kishi (for Android) controllers. 
 
 ![Controller image](./images/controller_fullcomponent.svg)
 
@@ -33,6 +33,16 @@ An application for checking game controllers (gamepads) to confirm button operat
 - Basic ways to work with Visual studio and Github
 - Breakpoint debugging in Visual studio
 - How to use Enum with Flags attribute
+
+### SVG decomposition
+In Inkscape or same kind of vector image editors, a image (SVG) is composed by several layers and objects. To use such image as VisualElement in MAUI, we perhaps decompose the image into several files with the individual objects/layers. My first attempt was very time consuming approach, that is, I manually saved objects by switching visibility property for all indivisual ones on the original image. This motivate me to develop the tool to decompose SVG image automatically (The repository to be uploaded later). The decomposition tool can report the positions of each object in the original SVG image, for use as anchor points for animation.
+
+```xml
+<Image x:Name="KEY_START" Source="button_start.png" 
+               AnchorX="0.55" AnchorY="0.45"/>
+<Image x:Name="KEY_SELECT" Source="button_select.png" 
+               AnchorX="0.45" AnchorY="0.45"/>
+```
 
 ## Known Issues
 
