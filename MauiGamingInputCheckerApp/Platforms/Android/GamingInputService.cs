@@ -1,10 +1,5 @@
 ﻿using Android.Views;
 using MauiGamingInputCheckerApp.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MauiGamingInputCheckerApp.Services;
 
@@ -19,7 +14,7 @@ public partial class GamingInputService
         while (true)
         {
 
-            
+
 
             int[] deviceIds = InputDevice.GetDeviceIds();
 
@@ -44,12 +39,12 @@ public partial class GamingInputService
                 //        break;
 
                 //    default: 
-                        
+
                 //        break;
                 //}
 
             }
-            
+
             if (gamepads.Count > 0) break;
 
             await Task.Delay(100);
@@ -75,7 +70,7 @@ public partial class GamingInputService
     }
 
 
-    async void EvokeService(InputDevice gamepad, GamingInput gamingInput)
+    void EvokeService(InputDevice gamepad, GamingInput gamingInput)
     {
 
         MainActivity activity = MainActivity.Instance;

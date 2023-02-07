@@ -1,5 +1,4 @@
 using MauiGamingInputCheckerApp.Models;
-using System.Net;
 using static MauiGamingInputCheckerApp.Models.GamingInput;
 
 namespace MauiGamingInputCheckerApp.CustomViews;
@@ -34,9 +33,9 @@ public partial class GamingInputView : ContentView
         }
     }
 
-	public GamingInputView()
-	{
-		InitializeComponent();
+    public GamingInputView()
+    {
+        InitializeComponent();
 
         KEY_L1.AnchorX = 0.5;
         KEY_L1.AnchorY = 0.5;
@@ -85,25 +84,25 @@ public partial class GamingInputView : ContentView
 
     async void AnimateDpad(VisualElement dpad, bool IsHold)
     {
-        if(IsHold) await dpad.ScaleTo(1.2, 100);
+        if (IsHold) await dpad.ScaleTo(1.2, 100);
         else await dpad.ScaleTo(1, 50);
     }
 
     async void AnimateTrigger(VisualElement trigger, int direction, bool IsHold)
     {
-        if (IsHold) await trigger.RotateTo(direction*5, 50);
+        if (IsHold) await trigger.RotateTo(direction * 5, 50);
         else await trigger.RotateTo(0, 100);
     }
 
     async void AnimateOption(VisualElement button, bool IsHold)
     {
-        if(IsHold) await button.ScaleTo(1.2, 100);
+        if (IsHold) await button.ScaleTo(1.2, 100);
         else await button.ScaleTo(1, 50);
     }
 
     async void AnimateActionButton(VisualElement button, bool IsHold)
     {
-        if(IsHold) await button.ScaleTo(1.2, 100);
+        if (IsHold) await button.ScaleTo(1.2, 100);
         else await button.ScaleTo(1, 50);
     }
 }

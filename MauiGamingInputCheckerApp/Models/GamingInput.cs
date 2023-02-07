@@ -57,7 +57,7 @@ public partial class GamingInput : ObservableObject
     }
 
 
-    
+
     public void SetDeviceID(int id) => DeviceId = id;
 
     public void SetDeviceName(string name) => DeviceName = name;

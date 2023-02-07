@@ -1,10 +1,8 @@
 ﻿using Android.App;
 using Android.Content.PM;
-using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using MauiGamingInputCheckerApp.Models;
-using Xamarin.Google.Crypto.Tink.Signature;
 
 namespace MauiGamingInputCheckerApp;
 
@@ -77,7 +75,7 @@ public class MainActivity : MauiAppCompatActivity
         //if (e.Source == InputSourceType.Joystick)
         //    return base.OnGenericMotionEvent(e);
 
-        
+
         // for analog sticks
 
         float xaxis = e.GetAxisValue(Axis.X);
@@ -90,6 +88,6 @@ public class MainActivity : MauiAppCompatActivity
     }
 
 
-    
+
 
 }

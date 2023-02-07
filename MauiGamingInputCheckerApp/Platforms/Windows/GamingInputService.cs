@@ -1,11 +1,5 @@
 ﻿using MauiGamingInputCheckerApp.Models;
 using Windows.Gaming.Input;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.Security.Cryptography.Certificates;
 
 namespace MauiGamingInputCheckerApp.Services;
 
@@ -28,7 +22,7 @@ public partial class GamingInputService
 
         int id = 0;
 
-        foreach(var gamepad in Gamepad.Gamepads)
+        foreach (var gamepad in Gamepad.Gamepads)
         {
             gamepads.Add(gamepad);
 
@@ -40,7 +34,7 @@ public partial class GamingInputService
             gamingInputs.Add(gamingInput);
         }
 
-        for(int k = 0; k < gamepads.Count; k++)
+        for (int k = 0; k < gamepads.Count; k++)
         {
             EvokeService(gamepads[k], gamingInputs[k]);
         }
@@ -91,7 +85,7 @@ public partial class GamingInputService
         if (buttons.HasFlag(GamepadButtons.DPadDown)) keys |= GamingInput.KEYS.KEY_DOWN;
         if (buttons.HasFlag(GamepadButtons.DPadLeft)) keys |= GamingInput.KEYS.KEY_LEFT;
         if (buttons.HasFlag(GamepadButtons.DPadRight)) keys |= GamingInput.KEYS.KEY_RIGHT;
-            
+
         if (buttons.HasFlag(GamepadButtons.A)) keys |= GamingInput.KEYS.KEY_A;
         if (buttons.HasFlag(GamepadButtons.B)) keys |= GamingInput.KEYS.KEY_B;
         if (buttons.HasFlag(GamepadButtons.X)) keys |= GamingInput.KEYS.KEY_X;
@@ -99,7 +93,7 @@ public partial class GamingInputService
 
         if (buttons.HasFlag(GamepadButtons.LeftShoulder)) keys |= GamingInput.KEYS.KEY_LEFTSHOULDER;
         if (buttons.HasFlag(GamepadButtons.RightShoulder)) keys |= GamingInput.KEYS.KEY_RIGHTSHOULDER;
-            
+
         if (buttons.HasFlag(GamepadButtons.Menu)) keys |= GamingInput.KEYS.KEY_START;
         if (buttons.HasFlag(GamepadButtons.View)) keys |= GamingInput.KEYS.KEY_SELECT;
 
