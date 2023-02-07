@@ -8,38 +8,6 @@ public partial class MainPage : ContentPage
 
     GamingInputService? _service;
 
-    /* Unmerged change from project 'MauiGamingInputCheckerApp (net7.0-windows10.0.19041.0)'
-    Before:
-        List<GamingInput>? _controllers;
-
-        public MainPage()
-    After:
-        List<GamingInput>? _controllers;
-
-        public MainPage()
-    */
-
-    /* Unmerged change from project 'MauiGamingInputCheckerApp (net7.0-android)'
-    Before:
-        List<GamingInput>? _controllers;
-
-        public MainPage()
-    After:
-        List<GamingInput>? _controllers;
-
-        public MainPage()
-    */
-
-    /* Unmerged change from project 'MauiGamingInputCheckerApp (net7.0-ios)'
-    Before:
-        List<GamingInput>? _controllers;
-
-        public MainPage()
-    After:
-        List<GamingInput>? _controllers;
-
-        public MainPage()
-    */
     List<GamingInput>? _controllers;
 
     public MainPage()
@@ -83,33 +51,6 @@ public partial class MainPage : ContentPage
 
         _controllers = _service.GamingInputs;
 
-        //foreach(var controller in _controllers) 
-        //{
-        //	controller.KeyDown += KeyDownEvent;
-        //	controller.KeyUp += KeyUpEvent;
-
-        /* Unmerged change from project 'MauiGamingInputCheckerApp (net7.0-windows10.0.19041.0)'
-        Before:
-          //      }
-        After:
-                //      }
-        */
-
-        /* Unmerged change from project 'MauiGamingInputCheckerApp (net7.0-android)'
-        Before:
-          //      }
-        After:
-                //      }
-        */
-
-        /* Unmerged change from project 'MauiGamingInputCheckerApp (net7.0-ios)'
-        Before:
-          //      }
-        After:
-                //      }
-        */
-        //      }
-
         ControllerSelector.IsVisible = true;
         ControllerSelectStepper.Minimum = 1;
         ControllerSelectStepper.Value = 1;
@@ -127,73 +68,10 @@ public partial class MainPage : ContentPage
 
     }
 
-    //void KeyDownEvent(GamingInputArgs args) => MyInput.KeyDown(args);
-    //void KeyUpEvent(GamingInputArgs args) => MyInput.KeyUp(args);
-
-
     //
     protected override void OnSizeAllocated(double width, double height)
     {
         double density = DeviceDisplay.Current.MainDisplayInfo.Density;
-
-        // resize buttons
-        //foreach(VisualElement button in ControllerGUIButtons.Children)
-        //{
-        //	button.Scale /= density;
-        //	button.TranslationX /= density;
-        //	button.TranslationY /= density;
-        //}
-
-
-        /* Unmerged change from project 'MauiGamingInputCheckerApp (net7.0-windows10.0.19041.0)'
-        Before:
-        //#if WINDOWS
-        //		ControllerGUIContainer.Scale = 1;
-        //#elif ANDROID
-        //		ControllerGUIContainer.Scale = 2;
-        //#endif
-        After:
-                //#if WINDOWS
-                //		ControllerGUIContainer.Scale = 1;
-                //#elif ANDROID
-                //		ControllerGUIContainer.Scale = 2;
-                //#endif
-        */
-
-        /* Unmerged change from project 'MauiGamingInputCheckerApp (net7.0-android)'
-        Before:
-        //#if WINDOWS
-        //		ControllerGUIContainer.Scale = 1;
-        //#elif ANDROID
-        //		ControllerGUIContainer.Scale = 2;
-        //#endif
-        After:
-                //#if WINDOWS
-                //		ControllerGUIContainer.Scale = 1;
-                //#elif ANDROID
-                //		ControllerGUIContainer.Scale = 2;
-                //#endif
-        */
-
-        /* Unmerged change from project 'MauiGamingInputCheckerApp (net7.0-ios)'
-        Before:
-        //#if WINDOWS
-        //		ControllerGUIContainer.Scale = 1;
-        //#elif ANDROID
-        //		ControllerGUIContainer.Scale = 2;
-        //#endif
-        After:
-                //#if WINDOWS
-                //		ControllerGUIContainer.Scale = 1;
-                //#elif ANDROID
-                //		ControllerGUIContainer.Scale = 2;
-                //#endif
-        */
-        //#if WINDOWS
-        //		ControllerGUIContainer.Scale = 1;
-        //#elif ANDROID
-        //		ControllerGUIContainer.Scale = 2;
-        //#endif
 
         base.OnSizeAllocated(width, height);
     }

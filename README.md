@@ -1,7 +1,29 @@
 # MauiGamingInputCheckerApp
-An application for checking the game controllers (gamepads) to confirm button operation.
+An application for checking game controllers (gamepads) to confirm button operation.
+
+![Controller image](./images/controller_fullcomponent.svg)
 
 ## Files edited
+
+ - CustomViews/
+     - [GamingInputView.xaml](./MauiGamingInputCheckerApp/CustomViews/GamingInputView.xaml)
+     - [GamingInputView.xaml.cs](./MauiGamingInputCheckerApp/CustomViews/GamingInputView.xaml.cs)
+ - Models/
+     - [GamingInput.cs](./MauiGamingInputCheckerApp/Models/GamingInput.cs)
+     - [GamingInputArgs.cs](./MauiGamingInputCheckerApp/Models/GamingInputArgs.cs)
+ - Platforms/
+     - Android/
+         - [GamingInputService.cs](./MauiGamingInputCheckerApp/Platforms/Android/GamingInputService.cs)
+         - [MainActivity.cs](./MauiGamingInputCheckerApp/Platforms/Android/MainActivity.cs)
+     - Windows/
+         - [GamingInputService.cs](./MauiGamingInputCheckerApp/Platforms/Windows/GamingInputService.cs)
+ - Resources/
+     - Images/
+         - Controller/
+ - Services/
+     - [GamingInputService.cs](./MauiGamingInputCheckerApp/Services/GamingInputService.cs)
+ - [MainPage.xaml](./MauiGamingInputCheckerApp/MainPage.xaml)
+ - [MainPage.xaml.cs](./MauiGamingInputCheckerApp/MainPage.xaml.cs)
 
 ## What I learnt from this project
 
